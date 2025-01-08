@@ -1,0 +1,280 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 384">
+  <defs>
+    <!-- Definição do padrão de estrelas -->
+    <pattern id="starfield" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+      <!-- Estrelas pequenas -->
+      <circle cx="10" cy="30" r="0.5" fill="white">
+        <animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="50" cy="90" r="0.5" fill="white">
+        <animate attributeName="opacity" values="0.2;1;0.2" dur="4s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="120" cy="60" r="0.5" fill="white">
+        <animate attributeName="opacity" values="0.2;1;0.2" dur="3.5s" repeatCount="indefinite"/>
+      </circle>
+      <!-- Estrelas médias -->
+      <circle cx="180" cy="30" r="1" fill="white">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="65" cy="140" r="1" fill="white">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="4.5s" repeatCount="indefinite"/>
+      </circle>
+      <!-- Estrelas grandes -->
+      <circle cx="150" cy="110" r="1.5" fill="white">
+        <animate attributeName="opacity" values="0.4;1;0.4" dur="6s" repeatCount="indefinite"/>
+      </circle>
+    </pattern>
+    
+    <!-- Gradiente sutil para dar profundidade -->
+    <radialGradient id="spaceGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#000000"/>
+      <stop offset="100%" style="stop-color:#000000"/>
+    </radialGradient>
+    
+    <!-- Gradiente metálico para os punhos -->
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#A8A8A8"/>
+      <stop offset="45%" style="stop-color:#EFEFEF"/>
+      <stop offset="55%" style="stop-color:#FFFFFF"/>
+      <stop offset="100%" style="stop-color:#A8A8A8"/>
+    </linearGradient>
+    
+    <!-- Brilho metálico animado -->
+    <linearGradient id="metalShine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0)">
+        <animate attributeName="offset" values="0;1" dur="2s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="10%" style="stop-color:rgba(255,255,255,0.8)">
+        <animate attributeName="offset" values="0.1;1.1" dur="2s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="20%" style="stop-color:rgba(255,255,255,0)">
+        <animate attributeName="offset" values="0.2;1.2" dur="2s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+
+    <!-- Padrão de código aprimorado -->
+    <pattern id="codePattern" x="0" y="0" width="400" height="400" patternUnits="userSpaceOnUse">
+      <text x="10" y="20" fill="#2E8B57" font-family="monospace" font-size="12" opacity="0.2">
+        interface ForceUser {
+          midichlorians: number;
+          alignment: 'light' | 'dark';
+        }
+      </text>
+      <text x="10" y="60" fill="#2E8B57" font-family="monospace" font-size="12" opacity="0.2">
+        type ForceAlignment = 'light' | 'dark';
+      </text>
+      <text x="10" y="100" fill="#2E8B57" font-family="monospace" font-size="12" opacity="0.2">
+        // May the Force be with your code
+      </text>
+    </pattern>
+
+    <!-- Efeitos de glow aprimorados para os sabres -->
+    <filter id="lightsaber-glow-blue" x="-50%" y="-50%" width="200%" height="200%">
+      <!-- Camada de glow externa -->
+      <feGaussianBlur stdDeviation="8" result="glow1">
+        <animate attributeName="stdDeviation"
+                 values="8;12;8"
+                 dur="1.5s"
+                 repeatCount="indefinite"/>
+      </feGaussianBlur>
+      <feComposite operator="over" in="glow1" in2="SourceGraphic"/>
+      <!-- Camada de glow interna -->
+      <feGaussianBlur stdDeviation="4" result="glow2">
+        <animate attributeName="stdDeviation"
+                 values="4;6;4"
+                 dur="1s"
+                 repeatCount="indefinite"/>
+      </feGaussianBlur>
+      <feComposite operator="over" in="glow2" in2="SourceGraphic"/>
+    </filter>
+    
+    <filter id="lightsaber-glow-red" x="-50%" y="-50%" width="200%" height="200%">
+      <!-- Camada de glow externa -->
+      <feGaussianBlur stdDeviation="8" result="glow1">
+        <animate attributeName="stdDeviation"
+                 values="8;12;8"
+                 dur="1.5s"
+                 repeatCount="indefinite"/>
+      </feGaussianBlur>
+      <feComposite operator="over" in="glow1" in2="SourceGraphic"/>
+      <!-- Camada de glow interna -->
+      <feGaussianBlur stdDeviation="4" result="glow2">
+        <animate attributeName="stdDeviation"
+                 values="4;6;4"
+                 dur="1s"
+                 repeatCount="indefinite"/>
+      </feGaussianBlur>
+      <feComposite operator="over" in="glow2" in2="SourceGraphic"/>
+    </filter>
+
+    <!-- Efeito de distúrbio na Força -->
+    <filter id="force-disturbance">
+      <feTurbulence type="turbulence" baseFrequency="0.01" numOctaves="2">
+        <animate attributeName="baseFrequency"
+                 values="0.01;0.02;0.01"
+                 dur="10s"
+                 repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" scale="5"/>
+    </filter>
+  </defs>
+
+  <!-- Fundo preto profundo -->
+  <rect width="100%" height="100%" fill="black"/>
+  
+  <!-- Camada de estrelas -->
+  <rect width="100%" height="100%" fill="url(#starfield)"/>
+  <rect width="100%" height="100%" fill="url(#starfield)" transform="translate(100, 100)"/>
+  <rect width="100%" height="100%" fill="url(#starfield)" transform="translate(-50, 50)"/>
+  
+  <!-- Código com opacidade reduzida -->
+  <rect width="100%" height="100%" fill="url(#codePattern)" opacity="0.15"/>
+
+  <!-- Sabres de luz com efeito de energia -->
+  <g transform="translate(240,192) rotate(-45)">
+    <!-- Sabre azul com pulso de energia aprimorado -->
+    <!-- Camada de glow externa -->
+    <rect x="-15" y="-110" width="30" height="220" fill="#0066ff" opacity="0.3" filter="url(#lightsaber-glow-blue)">
+      <animate attributeName="opacity"
+               values="0.2;0.4;0.2"
+               dur="2s"
+               repeatCount="indefinite"/>
+    </rect>
+    <!-- Camada de glow intermediária -->
+    <rect x="-10" y="-105" width="20" height="210" fill="#0066ff" opacity="0.5" filter="url(#lightsaber-glow-blue)">
+      <animate attributeName="opacity"
+               values="0.4;0.6;0.4"
+               dur="1.5s"
+               repeatCount="indefinite"/>
+    </rect>
+    <!-- Núcleo do sabre -->
+    <rect x="-5" y="-100" width="10" height="200" fill="#ffffff" filter="url(#lightsaber-glow-blue)">
+      <animate attributeName="height"
+               values="0;200;190;200"
+               dur="2s"
+               fill="freeze"/>
+      <animate attributeName="opacity"
+               values="0.8;1;0.8"
+               dur="1s"
+               repeatCount="indefinite"/>
+    </rect>
+    <!-- Punho do sabre aprimorado -->
+    <g>
+      <!-- Base metálica do punho -->
+      <rect x="-8" y="90" width="16" height="30" fill="url(#metalGrad)" rx="2"/>
+      <!-- Detalhes do punho -->
+      <rect x="-6" y="95" width="12" height="2" fill="#666"/>
+      <rect x="-6" y="100" width="12" height="2" fill="#666"/>
+      <rect x="-6" y="105" width="12" height="2" fill="#666"/>
+      <!-- Brilho animado -->
+      <rect x="-8" y="90" width="16" height="30" fill="url(#metalShine)" rx="2" opacity="0.6">
+        <animate attributeName="opacity" values="0.6;0.8;0.6" dur="2s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+  </g>
+
+  <g transform="translate(1040,192) rotate(45)">
+    <!-- Sabre vermelho com pulso de energia aprimorado -->
+    <!-- Camada de glow externa -->
+    <rect x="-15" y="-110" width="30" height="220" fill="#ff0000" opacity="0.3" filter="url(#lightsaber-glow-red)">
+      <animate attributeName="opacity"
+               values="0.2;0.4;0.2"
+               dur="2s"
+               repeatCount="indefinite"/>
+    </rect>
+    <!-- Camada de glow intermediária -->
+    <rect x="-10" y="-105" width="20" height="210" fill="#ff0000" opacity="0.5" filter="url(#lightsaber-glow-red)">
+      <animate attributeName="opacity"
+               values="0.4;0.6;0.4"
+               dur="1.5s"
+               repeatCount="indefinite"/>
+    </rect>
+    <!-- Núcleo do sabre -->
+    <rect x="-5" y="-100" width="10" height="200" fill="#ffffff" filter="url(#lightsaber-glow-red)">
+      <animate attributeName="height"
+               values="0;200;190;200"
+               dur="2s"
+               fill="freeze"/>
+      <animate attributeName="opacity"
+               values="0.8;1;0.8"
+               dur="1.5s"
+               repeatCount="indefinite"/>
+    </rect>
+    <!-- Punho do sabre aprimorado -->
+    <g>
+      <!-- Base metálica do punho -->
+      <rect x="-8" y="90" width="16" height="30" fill="url(#metalGrad)" rx="2"/>
+      <!-- Detalhes do punho -->
+      <rect x="-6" y="95" width="12" height="2" fill="#666"/>
+      <rect x="-6" y="100" width="12" height="2" fill="#666"/>
+      <rect x="-6" y="105" width="12" height="2" fill="#666"/>
+      <!-- Brilho animado -->
+      <rect x="-8" y="90" width="16" height="30" fill="url(#metalShine)" rx="2" opacity="0.6">
+        <animate attributeName="opacity" values="0.6;0.8;0.6" dur="2s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+  </g>
+
+  <!-- Código principal aprimorado -->
+  <g transform="translate(640,144)">
+    <text text-anchor="middle" font-family="monospace" font-size="16" fill="#00ff00">
+      <tspan x="0" dy="0" opacity="0">
+        async class JediMaster {
+        <animate attributeName="opacity"
+                 values="0;1"
+                 dur="1s"
+                 fill="freeze"/>
+      </tspan>
+      <tspan x="0" dy="25" opacity="0">
+        @UseTheForce()
+        <animate attributeName="opacity"
+                 values="0;1"
+                 dur="1s"
+                 begin="0.5s"
+                 fill="freeze"/>
+      </tspan>
+      <tspan x="0" dy="25" opacity="0">
+        static async train(padawan: ForceUser) {
+        <animate attributeName="opacity"
+                 values="0;1"
+                 dur="1s"
+                 begin="1s"
+                 fill="freeze"/>
+      </tspan>
+      <tspan x="0" dy="25" opacity="0" fill="#ff6b6b">
+        if (padawan.try()) throw new DarkSideError();
+        <animate attributeName="opacity"
+                 values="0;1"
+                 dur="1s"
+                 begin="1.5s"
+                 fill="freeze"/>
+      </tspan>
+      <tspan x="0" dy="25" opacity="0">
+        const force = await padawan.doOrDoNot();
+        <animate attributeName="opacity"
+                 values="0;1"
+                 dur="1s"
+                 begin="2s"
+                 fill="freeze"/>
+      </tspan>
+      <tspan x="0" dy="25" opacity="0" fill="#ffd700">
+        return force.beWithYou();
+        <animate attributeName="opacity"
+                 values="0;1"
+                 dur="1s"
+                 begin="2.5s"
+                 fill="freeze"/>
+      </tspan>
+    </text>
+  </g>
+
+  <!-- Easter egg em comentário -->
+  <text x="640" y="336" text-anchor="middle" font-family="monospace" font-size="14" fill="#4CAF50" opacity="0">
+    // These aren't the bugs you're looking for 🌟
+    <animate attributeName="opacity"
+             values="0;1"
+             dur="2s"
+             begin="3s"
+             fill="freeze"/>
+  </text>
+</svg>
